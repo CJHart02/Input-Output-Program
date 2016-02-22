@@ -27,25 +27,27 @@ int main()
         outData.open("outData.txt");
 
         // import data from inData.txt file and assigns values to variables
-        inData >> firstName >> lastName >> department >> grossSalary >> bonus >> taxes >> distance >> t$
+        inData >> firstName >> lastName >> department >> grossSalary >> bonus >> taxes >> distance >> travelTime >> cupsSold >> cupCost;
 
         // calculate data necessary data not specified in inData.txt file
-        paycheck = (grossSalary + (grossSalary * (bonus/100))) - ((grossSalary + (grossSalary * (bonus/$
+        paycheck = (grossSalary + (grossSalary * (bonus/100))) - ((grossSalary + (grossSalary * (bonus/100))) * (taxes/100));
         averageSpeed = distance / travelTime;
         salesAmount = cupsSold * cupCost;
 
         // output data to outData.txt file 
         outData << "Name: " << firstName << " " << lastName << ", Department: " << department << endl;
-        outData << setprecision (2) << fixed << "Monthly Gross Salary: $" << grossSalary << ", Monthly $
+        outData << setprecision (2) << fixed << "Monthly Gross Salary: $" << grossSalary << ", Monthly Bonus: " << bonus << "%, Taxes: " << taxes << "% " << endl; 
         outData << "Paycheck: $" << paycheck <<  endl << endl;
-        outData << "Distance Traveled: " << distance << " miles, Traveling Time: " << travelTime << " h$
+        outData << "Distance Traveled: " << distance << " miles, Traveling Time: " << travelTime << " hours" << endl;
         outData << "Average Speed: " << averageSpeed << " miles per hour" << endl << endl;
-        outData << "Number of Coffee Cups Sold: " << cupsSold << ", Cost: $" << cupCost << " per cup" <$
+        outData << "Number of Coffee Cups Sold: " << cupsSold << ", Cost: $" << cupCost << " per cup" << endl;
         outData << "Sales Amount = $" << salesAmount << endl;
 
         // close import and output files
-        inData.close(" inData.txt ")
-        outData.close(" outData.txt ")
+        inData.close();
+        outData.close();
+
+        cout << "The program has run successfully. The output data can be found in the file outData.txt" << endl;
 
         return 0;
 }
